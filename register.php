@@ -1,7 +1,7 @@
 <?php include "db.php"; ?>
 
 <form method="POST">
-    <input name="name" placeholder="Name"><br>
+    <input name="name" placeholder="Name" required><br>
     <input name="email" placeholder="Email"><br>
     <input type="password" name="password" placeholder="Password"><br>
     <button type="submit">Register</button>
