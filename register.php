@@ -13,7 +13,7 @@ if ($_POST) {
     $email = $_POST['email'];
     $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $conn->query("INSERT INTO students(name,email,password)
-    VALUES('$name','$email','$pass')");
+    $conn->query("INSERT INTO students(id,name,email,password)
+    VALUES(NULL,'$name','$email','$pass')");
 }
 ?>
