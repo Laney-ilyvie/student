@@ -4,8 +4,8 @@ session_start();
 ?>
 
 <form method="POST">
-    <input name="email"><br>
-    <input type="password" name="password"><br>
+    <input name="email" placeholder="Email" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
     <button>Login</button>
 </form>
 
