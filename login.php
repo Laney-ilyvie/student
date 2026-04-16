@@ -1,14 +1,15 @@
-<?php include "student.php"; ?>
+<?php
+include "db.php";
+session_start();
+?>
 
-<form>
-    <input name="email" placeholder="Email"><br><br>
-    <input type="password" name="password" placeholder="Password"><br><br>
-    <button type="submit">Login</button><br>
+<form method="POST">
+    <input name="email"><br>
+    <input type="password" name="password"><br>
+    <button>Login</button>
 </form>
 
 <?php
-session_start();
-
 if ($_POST) {
     $email = $_POST['email'];
     $pass = $_POST['password'];

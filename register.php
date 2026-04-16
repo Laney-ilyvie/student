@@ -1,9 +1,9 @@
-<?php include "student.php"; ?>
+<?php include "db.php"; ?>
 
 <form method="POST">
-    <input name="name" placeholder="Name"><br><br>
-    <input name="email" placeholder="Email"><br><br>
-    <input type="password" name="password" placeholder="Password"><br><br>
+    <input name="name" placeholder="Name"><br>
+    <input name="email" placeholder="Email"><br>
+    <input type="password" name="password" placeholder="Password"><br>
     <button type="submit">Register</button>
 </form>
 
@@ -15,7 +15,5 @@ if ($_POST) {
 
     $conn->query("INSERT INTO students(name,email,password)
     VALUES('$name','$email','$pass')");
-
-    echo "Registered successfully!";
 }
 ?>

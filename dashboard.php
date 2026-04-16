@@ -1,5 +1,5 @@
 <?php
-include "student.php";
+include "db.php";
 session_start();
 
 if (!isset($_SESSION['student'])) {
@@ -9,15 +9,6 @@ if (!isset($_SESSION['student'])) {
 
 <h2>Welcome <?php echo $_SESSION['student']; ?></h2>
 
-<h3>Available Exams</h3>
-
-<?php
-$result = $conn->query("SELECT * FROM exams");
-
-while ($row = $result->fetch_assoc()) {
-    echo "<p>
-        <b>{$row['title']}</b> - {$row['course']}
-        <a href='{$row['file_path']}'>Download</a>
-    </p>";
-}
-?>
+<a href="view_assignments.php">View Assignments</a><br>
+<a href="upload_exam.php">View Exams</a><br>
+<a href="logout.php">Logout</a>
