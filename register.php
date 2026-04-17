@@ -3,7 +3,7 @@
 <form method="POST">
     <input name="name" placeholder="Name" required><br>
     <input name="email" placeholder="Email" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="course" name="course" placeholder="course"required><br>
     <button type="submit">Register</button>
 </form>
 
@@ -11,9 +11,9 @@
 if ($_POST) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $course = $_POST['course'];
 
-    $conn->query("INSERT INTO students(id,name,email,password)
-    VALUES(Null,'$name','$email','$pass')");
+    $conn->query("INSERT INTO students(id,name,email,course)
+    VALUES(Null,'$name','$email','$course')");
 }
 ?>
