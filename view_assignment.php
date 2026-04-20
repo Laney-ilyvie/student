@@ -1,7 +1,6 @@
 <?php
 include "db.php";
 session_start();
-$student_id = $_SESSION['student_id']; // logged-in student
 
 $result = $conn->query("
     SELECT a.title, a.description, a.file_path
