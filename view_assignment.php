@@ -1,10 +1,6 @@
 <?php
 include "db.php";
 session_start();
-if (!isset($_SESSION['student'])) {
-    header("Location: login.php");
-}
-
 $student_id = $_SESSION['student_id']; // logged-in student
 
 $result = $conn->query("
