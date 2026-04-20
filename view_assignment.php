@@ -2,7 +2,6 @@
 include "db.php";
 session_start();
 
-// check login
 if (!isset($_SESSION['student'])) {
     header("Location: login.php");
     exit();
@@ -10,18 +9,11 @@ if (!isset($_SESSION['student'])) {
 
 $student = $_SESSION['student'];
 
-// get student id using email/username stored in session
 $getStudent = $conn->query("SELECT id FROM students WHERE email='$student'");
 $studentData = $getStudent->fetch_assoc();
 $student_id = $studentData['id'];
 
-// fetch assignments for that student
-$result = $conn->query("
-    SELECT a.title, a.description, a.file_path
-    FROM assignments a
-    JOIN student_assignments sa ON a.id = sa.assignment_id
-    WHERE sa.student_id = $student_id
-");
+$result = $conn->query("SELECT a.title, a.description, a.file_path FROM assignments a JOIN student_assignments sa ON a.id = sa.assignment_id WHERE sa.student_id = $student_id");
 ?>
 
 <!DOCTYPE html>
