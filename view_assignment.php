@@ -2,24 +2,16 @@
 include "db.php";
 session_start();
 
-// Check if student is logged in
-if (!isset($_SESSION['student_id'])) {
-    header("location: Login.php");
-    exit();
-}
 
 
 $student_id = $_SESSION['student_id'];
 
-// Fetch assignments for this student
-$result = $conn->query("
-");
 ?>
 
 <h2>My Assignments</h2>
 
 <?php
-if ($result->num_rows > 0) {
+if ($result = $conn-> query("SELECT * FROM assignments WHERE student_id='$student_id'")) {
 
     while ($row = $result->fetch_assoc()) {
 
