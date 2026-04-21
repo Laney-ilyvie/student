@@ -12,9 +12,9 @@ session_start();
 
 <?php
 if ($_POST) {
-    $email = $_POST['email'];
+    $name = $_POST['name'];
 
-    $result = $conn->query("SELECT * FROM students WHERE email='$email'");
+    $result = $conn->query("SELECT * FROM students WHERE name='$name'");
     $row = $result->fetch_assoc();
 
     if ($row) {
