@@ -11,7 +11,7 @@ $student_id = $_SESSION['student_id'];
 <h2>My Assignments</h2>
 
 <?php
-if ($row = $result->fetch_assoc()) {
+if () {
 
     while ($row = $result->fetch_assoc()) {
 
