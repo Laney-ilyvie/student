@@ -1,11 +1,11 @@
 <?php
 include "db.php";
 session_start();
-$_SESSION['student_id'] = $row['id'];
 ?>
 
 <form method="POST">
-    <input name="email" placeholder="Email" required><br>
+    <input type="text" name="name" placeholder="Name" required><br>
+    <input type="email" placeholder="Email" required><br>
     <input type="password" name="password" placeholder="Password" required><br>
     <button>Login</button>
 </form>

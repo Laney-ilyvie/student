@@ -13,10 +13,6 @@ $student_id = $_SESSION['student_id'];
 
 // Fetch assignments for this student
 $result = $conn->query("
-    SELECT a.title, a.description, a.file_path
-    FROM assignments a
-    JOIN student_assignments sa ON a.id = sa.assignment_id
-    WHERE sa.student_id = $student_id
 ");
 ?>
 
