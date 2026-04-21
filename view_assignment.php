@@ -11,7 +11,7 @@ $student_id = $_SESSION['student_id'];
 <h2>My Assignments</h2>
 
 <?php
-if ($result = $conn-> query("SELECT * FROM assignments WHERE student_id='$student_id'")) {
+if ($row = $result->fetch_assoc()) {
 
     while ($row = $result->fetch_assoc()) {
 
