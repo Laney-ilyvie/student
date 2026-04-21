@@ -46,8 +46,7 @@ if (isset($_POST['upload'])) {
 ?>
 
 <h2>Upload Exam</h2>
-
-<p style="color:green;"><?php echo $message; ?></p>
+<?php if ($message) { echo "<p> $message</p>"; } ?>
 
 <form method="POST" enctype="multipart/form-data">
 
