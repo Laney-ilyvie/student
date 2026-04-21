@@ -4,7 +4,6 @@ session_start();
 ?>
 
 <form method="POST">
-    <input type="text" name="name" placeholder="Name" required><br>
     <input type="email" placeholder="Email" required><br>
     <input type="password" name="password" placeholder="Password" required><br>
     <button>Login</button>
@@ -12,9 +11,10 @@ session_start();
 
 <?php
 if ($_POST) {
-    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    $result = $conn->query("SELECT * FROM students WHERE name='$name'");
+    $result = $conn->query("SELECT * FROM students WHERE email='$email' AND password='$password'");
     $row = $result->fetch_assoc();
 
     if ($row) {
