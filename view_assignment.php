@@ -4,9 +4,10 @@ session_start();
 
 // Check if student is logged in
 if (!isset($_SESSION['student_id'])) {
-    header("Location: login.php");
+    header("location: Login.php");
     exit();
 }
+
 
 $student_id = $_SESSION['student_id'];
 
@@ -25,7 +26,6 @@ $result = $conn->query("
 if ($result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
-        echo "<div style='border:1px solid #000; padding:10px; margin:10px;'>";
 
         echo "<h3>" . $row['title'] . "</h3>";
         echo "<p>" . $row['description'] . "</p>";
