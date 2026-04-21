@@ -5,6 +5,7 @@ session_start();
 
 
 $student_id = $_SESSION['student_id'];
+
 $result = $conn->query("
     SELECT a.title, a.description, a.file_path
     FROM assignments a
