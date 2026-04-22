@@ -22,7 +22,6 @@ if ($result->num_rows > 0) {
 
         echo "<a href='" . $row['file_path'] . "' download>Download Assignment</a>";
 
-        echo "</div>";
     }
 
 } else {
