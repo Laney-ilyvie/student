@@ -51,22 +51,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $stmt->bind_param("ss", $title, $upload_path);
                     $stmt->execute();
 
-                    echo "<p style='color:green;'>Exam uploaded successfully!</p>";
+                    echo "<p>Exam uploaded successfully!</p>";
 
                 } else {
-                    echo "<p style='color:red;'>Failed to upload file.</p>";
+                    echo "<p>Failed to upload file.</p>";
                 }
 
             } else {
-                echo "<p style='color:red;'>File too large.</p>";
+                echo "<p>File too large.</p>";
             }
 
         } else {
-            echo "<p style='color:red;'>Error uploading file.</p>";
+            echo "<p>Error uploading file.</p>";
         }
 
     } else {
-        echo "<p style='color:red;'>Invalid file type.</p>";
+        echo "<p>Invalid file type.</p>";
     }
 }
 ?>
