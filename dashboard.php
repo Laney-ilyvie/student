@@ -11,4 +11,5 @@ if (!isset($_SESSION['student'])) {
 
 <a href="view_assignment.php">View Assignment</a><br>
 <a href="view_exam.php">View Exams</a><br>
+<a href="upload_exam.php">Upload Exam</a><br>
 <a href="logout.php">Logout</a>
