@@ -15,7 +15,7 @@ if ($_POST) {
     $name = $_POST['name'];
     $email = $_POST['email'];
 
-    $result = $conn->query("SELECT * FROM students WHERE email='$name'");
+    $result = $conn->query("SELECT * FROM students WHERE name='$name'");
     $row = $result->fetch_assoc();
 
     if ($row) {
