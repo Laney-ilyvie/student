@@ -6,13 +6,7 @@ session_start();
 
 $student_id = $_SESSION['student_id'];
 
-$result = $conn->query("
-    SELECT a.title, a.description, a.file_path
-    FROM assignments a
-    JOIN student_assignments sa ON a.id = sa.assignment_id
-    WHERE sa.student_id = $student_id
-");
-
+$result = $conn->query(" SELECT * FROM assignments ");
 ?>
 
 <h2>My Assignments</h2>
