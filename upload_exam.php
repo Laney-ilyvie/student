@@ -33,7 +33,7 @@ if (isset($_POST['upload'])) {
         $sql = "INSERT INTO exams (title, file_path, uploaded_by)
                 VALUES ('$title', '$file_path', '$uploaded_by')";
 
-        if ($conn->query($sql)) {
+        if ($conn->query($sql) === TRUE) {
             $message = "Exam uploaded successfully!";
         } else {
             $message = "Database error!";
