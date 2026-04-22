@@ -2,71 +2,30 @@
 include "db.php";
 session_start();
 
-// Optional: restrict access
-if (!isset($_SESSION['student'])) {
+// Check if student is logged in
+if (!isset($_SESSION['student_id'])) {
     header("Location: login.php");
     exit();
 }
-?>
 
-<h2>Upload Exam</h2>
+$student_id = $_SESSION['student_id'];
 
-<form method="POST" enctype="multipart/form-data">
-    <input type="text" name="title" placeholder="Exam Title" required><br><br>
-    <input type="file" name="exam_file" required><br><br>
-    <button type="submit">Upload</button>
-</form>
+");
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($result->num_rows > 0) {
 
-    $title = $_POST['title'];
+    while ($row = $result->fetch_assoc()) {
 
-    // File info
-    $file_name = $_FILES['exam_file']['name'];
-    $tmp_name = $_FILES['exam_file']['tmp_name'];
-    $file_size = $_FILES['exam_file']['size'];
-    $file_error = $_FILES['exam_file']['error'];
 
-    // Allowed file types
-    $allowed = ['pdf', 'doc', 'docx'];
+        echo "<h3>" . $row['title'] . "</h3>";
+        echo "<p>" . $row['description'] . "</p>";
 
-    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        echo "<a href='" . $row['file_path'] . "' download>Download Assignment</a>";
 
-    if (in_array($file_ext, $allowed)) {
-
-        if ($file_error === 0) {
-
-            if ($file_size < 5000000) { // 5MB limit
-
-                // Unique file name
-                $new_name = uniqid("exam_", true) . "." . $file_ext;
-
-                $upload_path = "uploads/" . $new_name;
-
-                if (move_uploaded_file($tmp_name, $upload_path)) {
-
-                    // Save to database
-                    $stmt = $conn->prepare("INSERT INTO exams (title, file_path) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $title, $upload_path);
-                    $stmt->execute();
-
-                    echo "<p style='color:green;'>Exam uploaded successfully!</p>";
-
-                } else {
-                    echo "<p style='color:red;'>Failed to upload file.</p>";
-                }
-
-            } else {
-                echo "<p style='color:red;'>File too large.</p>";
-            }
-
-        } else {
-            echo "<p style='color:red;'>Error uploading file.</p>";
-        }
-
-    } else {
-        echo "<p style='color:red;'>Invalid file type.</p>";
+        echo "</div>";
     }
+
+} else {
+    echo "<p>No assignments found.</p>";
 }
 ?>
