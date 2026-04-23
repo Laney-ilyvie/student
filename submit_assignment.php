@@ -9,8 +9,11 @@ if (!isset($_SESSION["student_id"])) {
 
 $student_id = $_SESSION["student_id"];
 
-// Get assignment id from URL
-$assignment_id = $_GET['assignment_id'];
+
+if (!isset($_GET['assignment_id'])) {
+    die("Assignment ID is missing.");
+}
+$assignment_id = $_GET['assignment_id']; // Get assignment ID from URL
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,9 @@ $assignment_id = $_GET['assignment_id'];
 
 <form method="POST" enctype="multipart/form-data">
     <input type="file" name="file" required><br><br>
-    <button type="submit">Submit</button>
+    <button onclick="window.location.href='submit_assignment.php?assignment_id=<?php echo $row['assignment_id']; ?>'">
+    Submit
+</button>
 </form>
 
 <?php
