@@ -30,6 +30,7 @@ if ($_POST) {
     $row = $result->fetch_assoc();
 
     if ($row) {
+        $_SESSION['student_id'] = $row['id'];
         $_SESSION['student'] = $row['name'];
         header("Location: dashboard.php");
     } else {

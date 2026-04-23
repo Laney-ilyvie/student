@@ -3,7 +3,11 @@ include "db.php";
 session_start();
 
 // Get student id from session
-$student_id = $_SESSION['student_id'];
+if (!isset($_SESSION["student_id"])) {
+    die("You must be logged in.");
+}
+
+$student_id = $_SESSION["student_id"];
 
 // Get assignment id from URL
 $assignment_id = $_GET['assignment_id'];
