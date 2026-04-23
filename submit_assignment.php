@@ -29,9 +29,7 @@ $assignment_id = $_GET['assignment_id']; // Get assignment ID from URL
 
 <form method="POST" enctype="multipart/form-data">
     <input type="file" name="file" required><br><br>
-    <button onclick="window.location.href='submit_assignment.php?assignment_id=<?php echo $row['assignment_id']; ?>'">
-    Submit
-</button>
+    <button type="submit">Submit</button>
 </form>
 
 <?php
