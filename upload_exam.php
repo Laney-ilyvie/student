@@ -8,6 +8,15 @@ if (!isset($_SESSION['student'])) {
     exit();
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <h2>Upload Exam</h2>
 
@@ -70,3 +79,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+</body>
+</html>

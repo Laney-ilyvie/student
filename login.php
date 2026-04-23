@@ -2,7 +2,18 @@
 include "db.php";
 session_start();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="form-box">
+
+    <h2>Student Login</h2>
 <form method="POST">
     <input type="text" name="name" placeholder="Name" required><br>
     <input type="email" name="email" placeholder="Email" required><br>
@@ -26,3 +37,6 @@ if ($_POST) {
     }
 }
 ?>
+</div>
+</body>
+</html>

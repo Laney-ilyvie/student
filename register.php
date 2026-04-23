@@ -1,9 +1,16 @@
 <?php include "db.php"; ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="class">
 <form method="POST">
-    <input name="name" placeholder="Name" required><br>
-    <input name="email" placeholder="Email" required><br>
-    <input type="text" name="course" placeholder="Course" required><br>
+    <input type="name" placeholder="Name" required><br>
+    <input type="email" placeholder="Email" required><br>
+    <input type="course" placeholder="Course" required><br><br>
     <button type="submit">Register</button>
 </form>
 
@@ -17,3 +24,5 @@ if ($_POST) {
     VALUES(Null,'$name','$email','$course')");
 }
 ?>
+</body>
+</html>

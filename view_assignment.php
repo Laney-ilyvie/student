@@ -1,8 +1,21 @@
 <?php
 include "db.php";
-session_start();
+session_start(); ?>
 
-$result = $conn->query ("SELECT * FROM assignments ");
+
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+</body>
+</html>
+    <div class="container">
+        <h2> Your Assignments </h2>
+<?php        
+        $result = $conn->query ("SELECT * FROM assignments ");
 
 
  if ($result->num_rows > 0) {
@@ -13,4 +26,8 @@ $result = $conn->query ("SELECT * FROM assignments ");
     }
  }
 ?>
+</div>
+</body>
+</html>
+
 
