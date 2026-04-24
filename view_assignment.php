@@ -22,6 +22,7 @@ session_start(); ?>
     while ($row = $result->fetch_assoc()) {
         echo "<h3>" . $row['title'] . "</h3>";
         echo "<a href='" . $row['file_path'] . "' download>Download Assignment</a><br><br>";
+        echo "<a href='submit_assignment.php?id=" . $row['id'] . "'>Submit</a>";
 
     }
  }
