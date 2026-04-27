@@ -7,8 +7,7 @@
 <body>
     <div class="box">
     <h2>Exam & Assignment</h2>
-    <a href="register.php">Register</a>
-    <a href="login.php">login</a>
+    <a href="register.php">Register</a><br>
 </div>
     
 </body>

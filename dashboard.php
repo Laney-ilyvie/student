@@ -22,6 +22,7 @@ if (!isset($_SESSION['student'])) {
 <a href="view_assignment.php">View Assignment</a><br>
 <a href="view_exam.php">View Exams</a><br>
 <a href="upload_exam.php">Upload Exam</a><br>
+<a href="submit_assignment.php?assignment_id=<?php echo $row['assignment_id']; ?>">Submit Assignment</a><br>
 <a href="logout.php">Logout</a>
 
 </body>

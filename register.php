@@ -11,7 +11,8 @@
     <input type="name" placeholder="Name" required><br>
     <input type="email" placeholder="Email" required><br>
     <input type="course" placeholder="Course" required><br><br>
-    <button type="submit">Register</button>
+    <button type="submit">Register</button><br><br>
+    <a href="login.php">Login</a><br><br>
 </form>
 
 <?php
