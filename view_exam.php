@@ -10,10 +10,12 @@ include "db.php";?>
 </head>
 <body>
 <?php
-$result = $conn->query("SELECT * FROM exams");
+$result = $conn->query("SELECT * FROM exams ORDER BY priority='High' DESC");
 
 while ($row = $result->fetch_assoc()) {
     echo "<h3>" . $row['title'] . "</h3>";
+     echo "<p>Priority: " . $row['priority'] . "</p>";
+
     echo "<a href='" . $row['file_path'] . "' download>Download Exam</a><br><br>";
 }
 ?>

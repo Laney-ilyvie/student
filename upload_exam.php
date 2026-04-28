@@ -22,6 +22,10 @@ if (!isset($_SESSION['student'])) {
 
 <form method="POST" enctype="multipart/form-data">
     <input type="text" name="title" placeholder="Exam Title" required><br><br>
+    <select name="priority">
+        <option value="High">High</option>
+        <option value="Low">Low</option>
+    </select><br><br>
     <input type="file" name="exam_file" required><br><br>
     <button type="submit">Upload</button>
 </form>
@@ -56,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (move_uploaded_file($tmp_name, $upload_path)) {
 
                     // Save to database
-                    $stmt = $conn->prepare("INSERT INTO exams (title, file_path) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $title, $upload_path);
+                    $stmt = $conn->prepare("INSERT INTO exams (title, file_path, priority) VALUES (?, ?, ?)");
+                    $stmt->bind_param("ssss", $title, $upload_path, $_POST['priority']);
                     $stmt->execute();
 
                     echo "<p>Exam uploaded successfully!</p>";
