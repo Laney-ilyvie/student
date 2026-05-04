@@ -8,11 +8,10 @@ $result = $conn->query("
     JOIN assignments a ON sub.assignment_id = a.id
     JOIN students s ON sub.student_id = s.id
 ");
-
 $submissions = [];
 
-while ($row = $result->fetch_assoc()) {
-    $submissions[] = $row;
+while ($row = $result->fetch_assoc()) {      
+    $submissions[] = $row; 
 }
 ?>
 
