@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     // Save to database
                     $stmt = $conn->prepare("INSERT INTO exams (title, file_path, priority) VALUES (?, ?, ?)");
-                    $stmt->bind_param("ssss", $title, $upload_path, $_POST['priority']);
+                    $stmt->bind_param("", $title, $upload_path, $_POST['priority']);
                     $stmt->execute();
 
                     echo "<p>Exam uploaded successfully!</p>";
