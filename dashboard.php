@@ -1,30 +1,13 @@
 <?php
-include "db.php";
 session_start();
 
-if (!isset($_SESSION['student'])) {
-    header("Location: login.php");
+if (isset($_SESSION['teacher_id'])) {
+    echo "<h2>Teacher</h2>";
+    echo "<a href='teacher_create_task.php'>Create Task</a><br>";
+}
+
+if (isset($_SESSION['student_id'])) {
+    echo "<h2>Student</h2>";
+    echo "<a href='student_tasks.php'>My Tasks</a>";
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>   
-<div class="container">
-    <div class="card">
-
-<h2>Welcome <?php echo $_SESSION['student']; ?></h2>
-
-<a href="view_assignment.php">View Assignment</a><br>
-<a href="view_exam.php">View Exams</a><br>
-<a href="upload_exam.php">Upload Exam</a><br>
-<a href="view_submissions.php">View Submissions</a><br>
-<a href="submit_assignment.php?assignment_id=<?php echo $row['assignment_id']; ?>">Submit Assignment</a><br>
-<a href="logout.php">Logout</a>
-
-</body>
-</html>

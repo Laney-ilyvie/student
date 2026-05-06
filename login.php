@@ -1,43 +1,29 @@
 <?php
 include "db.php";
 session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-    <title>login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-<div class="form-box">
-
-    <h2>Student Login</h2>
-<form method="POST">
-    <input type="text" name="name" placeholder="Name" required><br>
-    <input type="email" name="email" placeholder="Email" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button>Login</button>
-</form>
-
-<?php
 if ($_POST) {
-    $name = $_POST['name'];
     $email = $_POST['email'];
+    $pass = $_POST['password'];
 
-    $result = $conn->query("SELECT * FROM students WHERE name='$name'");
-    $row = $result->fetch_assoc();
-
-    if ($row) {
-        $_SESSION['student_id'] = $row['id'];
-        $_SESSION['student'] = $row['name'];
+    // Student
+    $res = $conn->query("SELECT * FROM students WHERE email='$email' AND password='$pass'");
+    if ($res->num_rows) {
+        $_SESSION['student_id'] = $res->fetch_assoc()['id'];
         header("Location: dashboard.php");
-    } else {
-        echo "Invalid login";
+    }
+
+    // Teacher
+    $res = $conn->query("SELECT * FROM teachers WHERE email='$email' AND password='$pass'");
+    if ($res->num_rows) {
+        $_SESSION['teacher_id'] = $res->fetch_assoc()['id'];
+        header("Location: dashboard.php");
     }
 }
 ?>
-</div>
-</body>
-</html>
+
+<form method="POST">
+<input name="email" placeholder="Email"><br>
+<input type="password" name="password"><br>
+<button>Login</button>
+</form>
