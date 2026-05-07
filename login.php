@@ -3,27 +3,66 @@ include "db.php";
 session_start();
 
 if ($_POST) {
+
     $email = $_POST['email'];
-    $pass = $_POST['password'];
+    $password = $_POST['password'];
 
-    // Student
-    $res = $conn->query("SELECT * FROM students WHERE email='$email' AND password='$pass'");
-    if ($res->num_rows) {
-        $_SESSION['student_id'] = $res->fetch_assoc()['id'];
+    // Student login
+    $result = $conn->query("
+        SELECT * FROM students
+        WHERE email='$email' AND password='$password'
+    ");
+
+    if ($result->num_rows > 0) {
+
+        $student = $result->fetch_assoc();
+
+        $_SESSION['student_id'] = $student['id'];
+
         header("Location: dashboard.php");
+        exit;
     }
 
-    // Teacher
-    $res = $conn->query("SELECT * FROM teachers WHERE email='$email' AND password='$pass'");
-    if ($res->num_rows) {
-        $_SESSION['teacher_id'] = $res->fetch_assoc()['id'];
+    // Teacher login
+    $result = $conn->query("
+        SELECT * FROM teachers
+        WHERE email='$email' AND password='$password'
+    ");
+
+    if ($result->num_rows > 0) {
+
+        $teacher = $result->fetch_assoc();
+
+        $_SESSION['teacher_id'] = $teacher['id'];
+
         header("Location: dashboard.php");
+        exit;
     }
+
+    echo "Invalid login";
 }
 ?>
 
+<h2>Login</h2>
+
 <form method="POST">
-<input name="email" placeholder="Email"><br>
-<input type="password" name="password"><br>
-<button>Login</button>
+
+    <input type="email" name="email" placeholder="Email" required><br><br>
+
+    <input type="password" name="password" placeholder="Password" required><br><br>
+
+    <button type="submit">Login</button>
+
 </form>
+
+<br>
+
+<a href="register_student.php">
+    Register as Student
+</a>
+
+<br><br>
+
+<a href="register_teacher.php">
+    Register as Teacher
+</a>

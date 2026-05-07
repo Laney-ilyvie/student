@@ -2,25 +2,37 @@
 include "db.php";
 session_start();
 
-$assignment_id = $_GET['id'];
 $student_id = $_SESSION['student_id'];
 
+$assignment_id = $_GET['assignment_id'];
+
 if ($_POST) {
+
     $file = $_FILES['file'];
-    $name = time() . "_" . $file['name'];
-    $path = "uploads/" . $name;
+
+    $new_name = time() . "_" . $file['name'];
+
+    $path = "uploads/" . $new_name;
 
     move_uploaded_file($file['tmp_name'], $path);
 
-    $stmt = $conn->prepare("INSERT INTO submissions (student_id, assignment_id, file_path) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("
+        INSERT INTO submissions(student_id, assignment_id, file_path)
+        VALUES (?, ?, ?)
+    ");
+
     $stmt->bind_param("iis", $student_id, $assignment_id, $path);
+
     $stmt->execute();
 
-    echo "Submitted!";
+    echo "Submission successful";
 }
 ?>
 
 <form method="POST" enctype="multipart/form-data">
-<input type="file" name="file"><br>
-<button>Submit</button>
+
+    <input type="file" name="file" required><br><br>
+
+    <button>Submit</button>
+
 </form>
