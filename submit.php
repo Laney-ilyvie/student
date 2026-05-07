@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
 <?php
 include "db.php";
 session_start();
@@ -36,3 +46,5 @@ if ($_POST) {
     <button>Submit</button>
 
 </form>
+</body>
+</html>
