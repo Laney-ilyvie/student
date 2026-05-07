@@ -8,8 +8,8 @@ if ($_POST) {
     $password = $_POST['password'];
 
     $stmt = $conn->prepare("
-        INSERT INTO teachers(name, email, password)
-        VALUES (?, ?, ?)
+        INSERT INTO teachers(id,name, email, password)
+        VALUES (NULL, ?, ?, ?)
     ");
 
     $stmt->bind_param("sss", $name, $email, $password);
