@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <?php
 include "db.php";
 session_start();
@@ -53,8 +43,6 @@ if ($_POST) {
 }
 ?>
 
-<h2>Login</h2>
-
 <form method="POST">
 
     <input type="email" name="email" placeholder="Email" required><br><br>
@@ -64,17 +52,3 @@ if ($_POST) {
     <button type="submit">Login</button>
 
 </form>
-
-<br>
-
-<a href="register_student.php">
-    Register as Student
-</a>
-
-<br><br>
-
-<a href="register_teacher.php">
-    Register as Teacher
-</a>
-</body>
-</html>
